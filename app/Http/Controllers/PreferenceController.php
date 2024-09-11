@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 
 class PreferenceController extends Controller
 {
-    
-    public function index()
+    // Display a listing of the resource.
+    public function index(): \Illuminate\Http\JsonResponse
     {
         $preferences = Preference::paginate(10);
         return response()->json($preferences);

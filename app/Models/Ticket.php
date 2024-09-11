@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Ticket extends Model
 {
@@ -11,7 +12,7 @@ class Ticket extends Model
 
 
     protected $fillable = [
-        'attendee_id', 
+        'attendee_id',
         'event_id',
         'price',
         'quantity',
@@ -19,15 +20,13 @@ class Ticket extends Model
         'end_date'
     ];
 
-    public function attendee()
+    public function attendee(): BelongsTo
     {
         return $this->belongsTo(Attendee::class);
     }
 
-    public function event()
+    public function event(): BelongsTo
     {
         return $this->belongsTo(Event::class);
     }
-
-    
 }

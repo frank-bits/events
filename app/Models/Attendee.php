@@ -4,20 +4,22 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Attendee extends Model
 {
     use HasFactory;
-    protected $fillable = ['name','email'];
+    protected $fillable = ['name', 'email'];
 
-    public function preferences()
+    // Define the relationship between the Attendee and Preference models
+    public function preferences():HasOne
     {
-        return $this->hasMany(Preference::class);
+        return $this->hasOne(Preference::class);
     }
-
-  public function tickets()
+    // Define the relationship between the Attendee and Ticket models
+    public function tickets():HasMany
     {
         return $this->hasMany(Ticket::class);
     }
-
 }

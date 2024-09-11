@@ -18,13 +18,14 @@ class TicketFactory extends Factory
      */
     public function definition(): array
     {
-        
+
         return [
             'event_id' => Event::factory()->create(
                 [
                     'start_date' => now()->addDays(rand(1, 10)),
                     'end_date' => now()->addDays(rand(1, 1)),
-                ]),
+                ]
+            ),
             'attendee_id' => Attendee::factory(),
             'quantity' => 1,
             'price' => $this->faker->randomFloat(2, 1, 100),

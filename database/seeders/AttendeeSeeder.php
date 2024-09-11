@@ -27,8 +27,6 @@ class AttendeeSeeder extends Seeder
            $event= Event::factory(1)->create()->toArray();
            $eventId=$event[0]['id'];
 
-          //  $event=Event::latest()->first();
-
             if($eventId % 2 == 0 ){
                 $start_date = now()->addDay(rand(1, 500));
                 $end_date = now()->addDays(rand(1, 500));

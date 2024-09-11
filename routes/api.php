@@ -23,12 +23,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
+/*
+  Since we are this is a challenge, we will not be using the Sanctum middleware to protect our routes.
+*/
 Route::get('/events',[EventController::class,'index'])->name('index');
 Route::get('/attendees',[AttendeeController::class,'index'])->name('index');
 Route::get('/preferences',[PreferenceController::class,'index'])->name('index');
 Route::get('/tickets',[TicketController::class,'index'])->name('index');
-
 Route::post('register',[UserAuthController::class,'register']);
 Route::post('login',[UserAuthController::class,'login']);
 Route::post('logout',[UserAuthController::class,'logout'])

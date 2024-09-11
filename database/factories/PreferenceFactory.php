@@ -19,8 +19,7 @@ class PreferenceFactory extends Factory
     {
         return [
             'attendee_id' => Attendee::factory(),
-            //'event_id' => $this->faker->numberBetween(1, 10),
-            'preferences' => $this->faker->sentence(1),
+            'preferences' => $this->faker->words(2, true),
         ];
     }
 }
